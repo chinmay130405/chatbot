@@ -1,90 +1,230 @@
-# Groq AI Chatbot
+# 🤖 Groq AI Chatbot
 
-A beautiful, modern chatbot built with React and powered by Groq AI's lightning-fast LLM inference.
+A beautiful, modern chatbot built with **React** and powered by **Groq AI's** lightning-fast LLM inference using the **Llama 3.1** model.
 
-## Features
+![React](https://img.shields.io/badge/React-18.3.1-blue?logo=react) ![Groq](https://img.shields.io/badge/Groq-AI-orange) ![Vite](https://img.shields.io/badge/Vite-5.4.2-purple?logo=vite) ![License](https://img.shields.io/badge/License-MIT-green)
 
-✨ **Modern UI Design** - Clean, responsive interface with smooth animations
-🚀 **Fast Responses** - Powered by Groq's ultra-fast inference
-💬 **Real-time Chat** - Smooth message flow with typing indicators
-🎨 **Beautiful Gradients** - Eye-catching purple gradient theme
-📱 **Responsive** - Works great on desktop and mobile devices
-🔒 **Secure** - API key is stored in browser memory only
+## ✨ Features
 
-## Prerequisites
+- 🎨 **Modern UI Design** - Clean, responsive interface with smooth animations
+- ⚡ **Ultra-Fast Responses** - Powered by Groq's lightning-fast inference engine
+- 💬 **Real-time Chat** - Smooth message flow with animated typing indicators
+- � **Beautiful Gradients** - Eye-catching purple gradient theme
+- 📱 **Fully Responsive** - Works seamlessly on desktop, tablet, and mobile devices
+- 🔒 **Secure** - Environment-based API key management
+- 🎯 **Latest AI Model** - Uses Llama 3.1-8B Instant for optimal performance
 
-- Node.js (v14 or higher)
-- A Groq API key (get one free at https://console.groq.com/keys)
+## 🚀 Quick Start
 
-## Installation
+### Prerequisites
 
-1. Navigate to the project directory:
-```bash
-cd groq-chatbot
-```
+Before you begin, make sure you have:
+- **Node.js** (v14 or higher) - [Download here](https://nodejs.org/)
+- **npm** (comes with Node.js)
+- A **Groq API key** - [Get one free here](https://console.groq.com/keys)
 
-2. Install dependencies:
-```bash
-npm install
-```
+### Installation Steps
 
-3. Set up your Groq API key:
-   - Create a `.env` file in the root directory (copy from `.env.example`)
-   - Get your free API key from [Groq Console](https://console.groq.com/keys)
-   - Add your API key to `.env`:
-   ```
-   VITE_GROQ_API_KEY=your_actual_api_key_here
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/chinmay130405/chatbot.git
+   cd chatbot
    ```
 
-4. Start the development server:
-```bash
-npm run dev
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Set up your API key**
+   
+   Create a `.env` file in the root directory:
+   ```bash
+   # On Windows (PowerShell)
+   Copy-Item .env.example .env
+   
+   # On Mac/Linux
+   cp .env.example .env
+   ```
+   
+   Open the `.env` file and add your Groq API key:
+   ```env
+   VITE_GROQ_API_KEY=your_groq_api_key_here
+   ```
+   
+   > **⚠️ Important:** Never commit your `.env` file to Git! It's already in `.gitignore`.
+
+4. **Get your Groq API key**
+   - Visit [console.groq.com/keys](https://console.groq.com/keys)
+   - Sign up or log in (it's completely free!)
+   - Click "Create API Key"
+   - Copy the key and paste it in your `.env` file
+
+5. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+
+6. **Open your browser**
+   
+   Navigate to the URL shown in your terminal (usually `http://localhost:5173`)
+
+🎉 **That's it!** Your chatbot is now running!
+
+## 📁 Project Structure
+
+```
+chatbot/
+├── src/
+│   ├── components/
+│   │   ├── Chatbot.jsx          # Main chatbot component
+│   │   └── Chatbot.css          # Chatbot styling
+│   ├── App.jsx                  # Root component
+│   ├── App.css                  # App styling
+│   ├── main.jsx                 # Entry point
+│   └── index.css                # Global styles
+├── .env.example                 # Environment variables template
+├── .gitignore                   # Git ignore rules
+├── CONTRIBUTING.md              # Contributing guidelines
+├── index.html                   # HTML template
+├── package.json                 # Dependencies and scripts
+├── vite.config.js               # Vite configuration
+└── README.md                    # This file
 ```
 
-5. Open your browser and go to `http://localhost:5173`
+## 🛠️ Tech Stack
 
-## Usage
+| Technology | Purpose |
+|------------|---------|
+| [React](https://react.dev/) | UI library for building the interface |
+| [Vite](https://vitejs.dev/) | Lightning-fast build tool and dev server |
+| [Groq SDK](https://www.npmjs.com/package/groq-sdk) | AI inference with Groq's API |
+| CSS3 | Custom styling with gradients and animations |
 
-**Option 1: Using .env file (Recommended)**
-- Add your API key to the `.env` file as shown above
-- The app will automatically use it and skip the API key input screen
+## 🤖 AI Model
 
-**Option 2: Manual entry**
-- If no API key is set in `.env`, you'll be prompted to enter it when you first open the app
-- You can change your API key anytime by clicking the 🔑 button in the header
+This chatbot uses **Llama 3.1-8B Instant** from Groq, which provides:
+- ⚡ **Ultra-fast inference** - Responses in milliseconds
+- 🎯 **High-quality responses** - Natural language understanding
+- 💡 **8B parameters** - Efficient yet powerful
+- 📝 **Large context window** - Better conversation flow
 
-## Tech Stack
+### Available Models
 
-- **React** - UI library
-- **Vite** - Build tool and dev server
-- **Groq SDK** - For AI inference
-- **CSS3** - Styling with gradients and animations
+You can change the model in `src/components/Chatbot.jsx`:
 
-## Models
-
-This chatbot uses the `llama3-8b-8192` model from Groq, which provides:
-- Fast inference times (< 1 second)
-- High-quality responses
-- Large context window (8192 tokens)
-
-## Building for Production
-
-```bash
-npm run build
+```javascript
+model: 'llama-3.1-8b-instant', // Change this line
 ```
 
-The built files will be in the `dist` directory.
+Other available Groq models:
+- `llama-3.1-8b-instant` (current - fastest)
+- `llama-3.1-70b-versatile` (more capable)
+- `mixtral-8x7b-32768` (largest context window)
 
-## Preview Production Build
+## 📦 Available Scripts
 
-```bash
-npm run preview
-```
+### `npm run dev`
+Starts the development server with hot reload
+- URL: `http://localhost:5173`
 
-## Note
+### `npm run build`
+Builds the app for production to the `dist` folder
+- Optimized and minified
+- Ready for deployment
 
-The API key is stored in browser memory and is never sent to any server except Groq's API. The `dangerouslyAllowBrowser: true` flag is used to enable client-side API calls. For production applications, consider implementing a backend proxy to keep your API key secure.
+### `npm run preview`
+Preview the production build locally
+- Test before deploying
 
-## License
+## 🌐 Deployment
 
-MIT
+### Option 1: Vercel (Recommended)
+
+1. Push your code to GitHub
+2. Import your repository on [Vercel](https://vercel.com)
+3. Add environment variable:
+   - Name: `VITE_GROQ_API_KEY`
+   - Value: Your Groq API key
+4. Deploy!
+
+### Option 2: Netlify
+
+1. Build the project: `npm run build`
+2. Drag and drop the `dist` folder to [Netlify](https://netlify.com)
+3. Add environment variable in Site Settings:
+   - Key: `VITE_GROQ_API_KEY`
+   - Value: Your Groq API key
+
+### Option 3: GitHub Pages
+
+1. Install gh-pages: `npm install --save-dev gh-pages`
+2. Add to `package.json`:
+   ```json
+   "homepage": "https://chinmay130405.github.io/chatbot",
+   "scripts": {
+     "predeploy": "npm run build",
+     "deploy": "gh-pages -d dist"
+   }
+   ```
+3. Run: `npm run deploy`
+
+> **⚠️ Security Note:** For production, consider implementing a backend proxy to keep your API key secure. The current setup uses `dangerouslyAllowBrowser: true` which exposes the API key in client-side code.
+
+## 🐛 Troubleshooting
+
+### API Key Not Working
+- ✅ Ensure `.env` file is in the root directory
+- ✅ Verify the key has the `VITE_` prefix: `VITE_GROQ_API_KEY`
+- ✅ Check that there are NO quotes around the API key value
+- ✅ Restart the dev server after changing `.env`
+
+### "Missing script: dev" Error
+- ✅ Make sure you're in the correct directory
+- ✅ Verify `package.json` exists
+- ✅ Run `npm install` first
+
+### Port Already in Use
+- ✅ Vite will automatically try the next available port (5174, 5175, etc.)
+- ✅ Check your terminal for the actual port being used
+
+### Build Errors
+- ✅ Delete `node_modules` and `package-lock.json`
+- ✅ Run `npm install` again
+- ✅ Make sure you're using Node.js v14 or higher
+
+## 🤝 Contributing
+
+Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
+Ways to contribute:
+- 🐛 Report bugs
+- 💡 Suggest new features
+- 📝 Improve documentation
+- 🔧 Submit pull requests
+
+## 📄 License
+
+This project is licensed under the MIT License - feel free to use it for personal or commercial projects!
+
+## 🙏 Acknowledgments
+
+- [Groq](https://groq.com/) - For their incredible AI inference platform
+- [Meta AI](https://ai.meta.com/) - For the Llama 3.1 model
+- [React Team](https://react.dev/) - For the amazing UI library
+
+## 📧 Support
+
+If you have any questions or run into issues:
+
+1. Check the [Troubleshooting](#-troubleshooting) section
+2. Open an issue on GitHub
+3. Visit [Groq's documentation](https://console.groq.com/docs)
+
+## 🌟 Show Your Support
+
+If you found this project helpful, please give it a ⭐ on GitHub!
+
+---
+
+**Made with ❤️ using React and Groq AI**
